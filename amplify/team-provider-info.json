@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-processautomationtoo-staging-221701-authRole",
+      "UnauthRoleArn": "arn:aws:iam::110538705311:role/amplify-processautomationtoo-staging-221701-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::110538705311:role/amplify-processautomationtoo-staging-221701-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-processautomationtoo-staging-221701-deployment",
+      "UnauthRoleName": "amplify-processautomationtoo-staging-221701-unauthRole",
+      "StackName": "amplify-processautomationtoo-staging-221701",
+      "StackId": "arn:aws:cloudformation:us-east-2:110538705311:stack/amplify-processautomationtoo-staging-221701/151f63a0-4cab-11ec-babf-0292d4655146",
+      "AmplifyAppId": "d2qn1bl13uwl1r"
+    },
+    "categories": {
+      "auth": {
+        "processautomationtool": {}
+      }
+    }
+  }
+}

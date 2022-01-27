@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "processautomationtoo",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/tlux/Desktop/process-automation-app/amplify/backend/api/processautomationtoo/schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authprocessautomationtool"
+    }
+  }
+}
