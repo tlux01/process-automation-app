@@ -115,3 +115,103 @@ export const listTemplates = /* GraphQL */ `
     }
   }
 `;
+export const getWorkflow = /* GraphQL */ `
+  query GetWorkflow($id: ID!) {
+    getWorkflow(id: $id) {
+      id
+      name
+      steps {
+        items {
+          id
+          stepNumber
+          createdAt
+          updatedAt
+          workflowStepsId
+          stepSequenceStepId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listWorkflows = /* GraphQL */ `
+  query ListWorkflows(
+    $filter: ModelWorkflowFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listWorkflows(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        steps {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getStepSequence = /* GraphQL */ `
+  query GetStepSequence($id: ID!) {
+    getStepSequence(id: $id) {
+      id
+      step {
+        id
+        name
+        sendEmail
+        template {
+          id
+          name
+          template
+          createdAt
+          updatedAt
+          owner
+        }
+        createdAt
+        updatedAt
+        stepTemplateId
+        owner
+      }
+      stepNumber
+      createdAt
+      updatedAt
+      workflowStepsId
+      stepSequenceStepId
+    }
+  }
+`;
+export const listStepSequences = /* GraphQL */ `
+  query ListStepSequences(
+    $filter: ModelStepSequenceFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listStepSequences(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        step {
+          id
+          name
+          sendEmail
+          createdAt
+          updatedAt
+          stepTemplateId
+          owner
+        }
+        stepNumber
+        createdAt
+        updatedAt
+        workflowStepsId
+        stepSequenceStepId
+      }
+      nextToken
+    }
+  }
+`;

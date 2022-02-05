@@ -20,3 +20,15 @@ type Template @model @auth(rules: [{ allow: owner }]) {
   name: String!
   template: String!
 }
+
+type Workflow @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  name: String!
+  steps: [StepSequence] @hasMany
+}
+
+type StepSequence @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  step: Step @hasOne
+  stepNumber: Int
+}

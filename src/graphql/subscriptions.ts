@@ -140,3 +140,156 @@ export const onDeleteTemplate = /* GraphQL */ `
     }
   }
 `;
+export const onCreateWorkflow = /* GraphQL */ `
+  subscription OnCreateWorkflow($owner: String) {
+    onCreateWorkflow(owner: $owner) {
+      id
+      name
+      steps {
+        items {
+          id
+          stepNumber
+          createdAt
+          updatedAt
+          workflowStepsId
+          stepSequenceStepId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateWorkflow = /* GraphQL */ `
+  subscription OnUpdateWorkflow($owner: String) {
+    onUpdateWorkflow(owner: $owner) {
+      id
+      name
+      steps {
+        items {
+          id
+          stepNumber
+          createdAt
+          updatedAt
+          workflowStepsId
+          stepSequenceStepId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteWorkflow = /* GraphQL */ `
+  subscription OnDeleteWorkflow($owner: String) {
+    onDeleteWorkflow(owner: $owner) {
+      id
+      name
+      steps {
+        items {
+          id
+          stepNumber
+          createdAt
+          updatedAt
+          workflowStepsId
+          stepSequenceStepId
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onCreateStepSequence = /* GraphQL */ `
+  subscription OnCreateStepSequence {
+    onCreateStepSequence {
+      id
+      step {
+        id
+        name
+        sendEmail
+        template {
+          id
+          name
+          template
+          createdAt
+          updatedAt
+          owner
+        }
+        createdAt
+        updatedAt
+        stepTemplateId
+        owner
+      }
+      stepNumber
+      createdAt
+      updatedAt
+      workflowStepsId
+      stepSequenceStepId
+    }
+  }
+`;
+export const onUpdateStepSequence = /* GraphQL */ `
+  subscription OnUpdateStepSequence {
+    onUpdateStepSequence {
+      id
+      step {
+        id
+        name
+        sendEmail
+        template {
+          id
+          name
+          template
+          createdAt
+          updatedAt
+          owner
+        }
+        createdAt
+        updatedAt
+        stepTemplateId
+        owner
+      }
+      stepNumber
+      createdAt
+      updatedAt
+      workflowStepsId
+      stepSequenceStepId
+    }
+  }
+`;
+export const onDeleteStepSequence = /* GraphQL */ `
+  subscription OnDeleteStepSequence {
+    onDeleteStepSequence {
+      id
+      step {
+        id
+        name
+        sendEmail
+        template {
+          id
+          name
+          template
+          createdAt
+          updatedAt
+          owner
+        }
+        createdAt
+        updatedAt
+        stepTemplateId
+        owner
+      }
+      stepNumber
+      createdAt
+      updatedAt
+      workflowStepsId
+      stepSequenceStepId
+    }
+  }
+`;

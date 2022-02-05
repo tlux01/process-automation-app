@@ -2,16 +2,14 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { withAuthenticator } from "@aws-amplify/ui-react";
-import AddCustomer from "./AddCustomer";
-import CustomerList from "./CustomerList";
-import Navigation from "./Navigation";
+import AddCustomer from "./components/customers/AddCustomer";
+import CustomerList from "./components/customers/CustomerList";
+import Navigation from "./components/nav/Navigation";
 
 function App() {
   return (
     <div className="App">
       <Navigation />
-      <AddCustomer />
-      <CustomerList />
     </div>
   );
 }
