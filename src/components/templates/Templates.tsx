@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import AddTemplate from "../../AddTemplate";
+import AddTemplate from "./AddTemplate";
 import { Template } from "../../viewModels/Template";
 import Navigation from "../nav/Navigation";
 import TemplateList from "./TemplateList";

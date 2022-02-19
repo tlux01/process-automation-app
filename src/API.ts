@@ -209,10 +209,12 @@ export type StepSequence = {
   id: string,
   step?: Step | null,
   stepNumber?: number | null,
+  workflow?: Workflow | null,
   createdAt: string,
   updatedAt: string,
   workflowStepsId?: string | null,
   stepSequenceStepId?: string | null,
+  owner?: string | null,
 };
 
 export type UpdateWorkflowInput = {
@@ -540,6 +542,7 @@ export type CreateWorkflowMutation = {
         updatedAt: string,
         workflowStepsId?: string | null,
         stepSequenceStepId?: string | null,
+        owner?: string | null,
       } | null >,
       nextToken?: string | null,
     } | null,
@@ -569,6 +572,7 @@ export type UpdateWorkflowMutation = {
         updatedAt: string,
         workflowStepsId?: string | null,
         stepSequenceStepId?: string | null,
+        owner?: string | null,
       } | null >,
       nextToken?: string | null,
     } | null,
@@ -598,6 +602,7 @@ export type DeleteWorkflowMutation = {
         updatedAt: string,
         workflowStepsId?: string | null,
         stepSequenceStepId?: string | null,
+        owner?: string | null,
       } | null >,
       nextToken?: string | null,
     } | null,
@@ -636,10 +641,23 @@ export type CreateStepSequenceMutation = {
       owner?: string | null,
     } | null,
     stepNumber?: number | null,
+    workflow?:  {
+      __typename: "Workflow",
+      id: string,
+      name: string,
+      steps?:  {
+        __typename: "ModelStepSequenceConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     workflowStepsId?: string | null,
     stepSequenceStepId?: string | null,
+    owner?: string | null,
   } | null,
 };
 
@@ -672,10 +690,23 @@ export type UpdateStepSequenceMutation = {
       owner?: string | null,
     } | null,
     stepNumber?: number | null,
+    workflow?:  {
+      __typename: "Workflow",
+      id: string,
+      name: string,
+      steps?:  {
+        __typename: "ModelStepSequenceConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     workflowStepsId?: string | null,
     stepSequenceStepId?: string | null,
+    owner?: string | null,
   } | null,
 };
 
@@ -708,10 +739,23 @@ export type DeleteStepSequenceMutation = {
       owner?: string | null,
     } | null,
     stepNumber?: number | null,
+    workflow?:  {
+      __typename: "Workflow",
+      id: string,
+      name: string,
+      steps?:  {
+        __typename: "ModelStepSequenceConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     workflowStepsId?: string | null,
     stepSequenceStepId?: string | null,
+    owner?: string | null,
   } | null,
 };
 
@@ -870,6 +914,7 @@ export type GetWorkflowQuery = {
         updatedAt: string,
         workflowStepsId?: string | null,
         stepSequenceStepId?: string | null,
+        owner?: string | null,
       } | null >,
       nextToken?: string | null,
     } | null,
@@ -932,10 +977,23 @@ export type GetStepSequenceQuery = {
       owner?: string | null,
     } | null,
     stepNumber?: number | null,
+    workflow?:  {
+      __typename: "Workflow",
+      id: string,
+      name: string,
+      steps?:  {
+        __typename: "ModelStepSequenceConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     workflowStepsId?: string | null,
     stepSequenceStepId?: string | null,
+    owner?: string | null,
   } | null,
 };
 
@@ -962,10 +1020,19 @@ export type ListStepSequencesQuery = {
         owner?: string | null,
       } | null,
       stepNumber?: number | null,
+      workflow?:  {
+        __typename: "Workflow",
+        id: string,
+        name: string,
+        createdAt: string,
+        updatedAt: string,
+        owner?: string | null,
+      } | null,
       createdAt: string,
       updatedAt: string,
       workflowStepsId?: string | null,
       stepSequenceStepId?: string | null,
+      owner?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -1167,6 +1234,7 @@ export type OnCreateWorkflowSubscription = {
         updatedAt: string,
         workflowStepsId?: string | null,
         stepSequenceStepId?: string | null,
+        owner?: string | null,
       } | null >,
       nextToken?: string | null,
     } | null,
@@ -1195,6 +1263,7 @@ export type OnUpdateWorkflowSubscription = {
         updatedAt: string,
         workflowStepsId?: string | null,
         stepSequenceStepId?: string | null,
+        owner?: string | null,
       } | null >,
       nextToken?: string | null,
     } | null,
@@ -1223,6 +1292,7 @@ export type OnDeleteWorkflowSubscription = {
         updatedAt: string,
         workflowStepsId?: string | null,
         stepSequenceStepId?: string | null,
+        owner?: string | null,
       } | null >,
       nextToken?: string | null,
     } | null,
@@ -1230,6 +1300,10 @@ export type OnDeleteWorkflowSubscription = {
     updatedAt: string,
     owner?: string | null,
   } | null,
+};
+
+export type OnCreateStepSequenceSubscriptionVariables = {
+  owner?: string | null,
 };
 
 export type OnCreateStepSequenceSubscription = {
@@ -1256,11 +1330,28 @@ export type OnCreateStepSequenceSubscription = {
       owner?: string | null,
     } | null,
     stepNumber?: number | null,
+    workflow?:  {
+      __typename: "Workflow",
+      id: string,
+      name: string,
+      steps?:  {
+        __typename: "ModelStepSequenceConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     workflowStepsId?: string | null,
     stepSequenceStepId?: string | null,
+    owner?: string | null,
   } | null,
+};
+
+export type OnUpdateStepSequenceSubscriptionVariables = {
+  owner?: string | null,
 };
 
 export type OnUpdateStepSequenceSubscription = {
@@ -1287,11 +1378,28 @@ export type OnUpdateStepSequenceSubscription = {
       owner?: string | null,
     } | null,
     stepNumber?: number | null,
+    workflow?:  {
+      __typename: "Workflow",
+      id: string,
+      name: string,
+      steps?:  {
+        __typename: "ModelStepSequenceConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     workflowStepsId?: string | null,
     stepSequenceStepId?: string | null,
+    owner?: string | null,
   } | null,
+};
+
+export type OnDeleteStepSequenceSubscriptionVariables = {
+  owner?: string | null,
 };
 
 export type OnDeleteStepSequenceSubscription = {
@@ -1318,9 +1426,22 @@ export type OnDeleteStepSequenceSubscription = {
       owner?: string | null,
     } | null,
     stepNumber?: number | null,
+    workflow?:  {
+      __typename: "Workflow",
+      id: string,
+      name: string,
+      steps?:  {
+        __typename: "ModelStepSequenceConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
     workflowStepsId?: string | null,
     stepSequenceStepId?: string | null,
+    owner?: string | null,
   } | null,
 };

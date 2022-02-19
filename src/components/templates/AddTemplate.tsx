@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Auth from "@aws-amplify/auth";
 import { API, graphqlOperation } from "aws-amplify";
-import { createTemplate } from "./graphql/mutations";
+import { createTemplate } from "../../graphql/mutations";
 
 interface TemplateInput {
   name: string;

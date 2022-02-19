@@ -153,6 +153,7 @@ export const onCreateWorkflow = /* GraphQL */ `
           updatedAt
           workflowStepsId
           stepSequenceStepId
+          owner
         }
         nextToken
       }
@@ -175,6 +176,7 @@ export const onUpdateWorkflow = /* GraphQL */ `
           updatedAt
           workflowStepsId
           stepSequenceStepId
+          owner
         }
         nextToken
       }
@@ -197,6 +199,7 @@ export const onDeleteWorkflow = /* GraphQL */ `
           updatedAt
           workflowStepsId
           stepSequenceStepId
+          owner
         }
         nextToken
       }
@@ -207,8 +210,8 @@ export const onDeleteWorkflow = /* GraphQL */ `
   }
 `;
 export const onCreateStepSequence = /* GraphQL */ `
-  subscription OnCreateStepSequence {
-    onCreateStepSequence {
+  subscription OnCreateStepSequence($owner: String) {
+    onCreateStepSequence(owner: $owner) {
       id
       step {
         id
@@ -228,16 +231,27 @@ export const onCreateStepSequence = /* GraphQL */ `
         owner
       }
       stepNumber
+      workflow {
+        id
+        name
+        steps {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
       workflowStepsId
       stepSequenceStepId
+      owner
     }
   }
 `;
 export const onUpdateStepSequence = /* GraphQL */ `
-  subscription OnUpdateStepSequence {
-    onUpdateStepSequence {
+  subscription OnUpdateStepSequence($owner: String) {
+    onUpdateStepSequence(owner: $owner) {
       id
       step {
         id
@@ -257,16 +271,27 @@ export const onUpdateStepSequence = /* GraphQL */ `
         owner
       }
       stepNumber
+      workflow {
+        id
+        name
+        steps {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
       workflowStepsId
       stepSequenceStepId
+      owner
     }
   }
 `;
 export const onDeleteStepSequence = /* GraphQL */ `
-  subscription OnDeleteStepSequence {
-    onDeleteStepSequence {
+  subscription OnDeleteStepSequence($owner: String) {
+    onDeleteStepSequence(owner: $owner) {
       id
       step {
         id
@@ -286,10 +311,21 @@ export const onDeleteStepSequence = /* GraphQL */ `
         owner
       }
       stepNumber
+      workflow {
+        id
+        name
+        steps {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
       workflowStepsId
       stepSequenceStepId
+      owner
     }
   }
 `;

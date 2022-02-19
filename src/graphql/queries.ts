@@ -128,6 +128,7 @@ export const getWorkflow = /* GraphQL */ `
           updatedAt
           workflowStepsId
           stepSequenceStepId
+          owner
         }
         nextToken
       }
@@ -180,10 +181,21 @@ export const getStepSequence = /* GraphQL */ `
         owner
       }
       stepNumber
+      workflow {
+        id
+        name
+        steps {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
       workflowStepsId
       stepSequenceStepId
+      owner
     }
   }
 `;
@@ -206,10 +218,18 @@ export const listStepSequences = /* GraphQL */ `
           owner
         }
         stepNumber
+        workflow {
+          id
+          name
+          createdAt
+          updatedAt
+          owner
+        }
         createdAt
         updatedAt
         workflowStepsId
         stepSequenceStepId
+        owner
       }
       nextToken
     }

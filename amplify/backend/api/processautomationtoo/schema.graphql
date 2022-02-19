@@ -31,4 +31,5 @@ type StepSequence @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   step: Step @hasOne
   stepNumber: Int
+  workflow: Workflow @belongsTo
 }

@@ -183,6 +183,7 @@ export const createWorkflow = /* GraphQL */ `
           updatedAt
           workflowStepsId
           stepSequenceStepId
+          owner
         }
         nextToken
       }
@@ -208,6 +209,7 @@ export const updateWorkflow = /* GraphQL */ `
           updatedAt
           workflowStepsId
           stepSequenceStepId
+          owner
         }
         nextToken
       }
@@ -233,6 +235,7 @@ export const deleteWorkflow = /* GraphQL */ `
           updatedAt
           workflowStepsId
           stepSequenceStepId
+          owner
         }
         nextToken
       }
@@ -267,10 +270,21 @@ export const createStepSequence = /* GraphQL */ `
         owner
       }
       stepNumber
+      workflow {
+        id
+        name
+        steps {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
       workflowStepsId
       stepSequenceStepId
+      owner
     }
   }
 `;
@@ -299,10 +313,21 @@ export const updateStepSequence = /* GraphQL */ `
         owner
       }
       stepNumber
+      workflow {
+        id
+        name
+        steps {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
       workflowStepsId
       stepSequenceStepId
+      owner
     }
   }
 `;
@@ -331,10 +356,21 @@ export const deleteStepSequence = /* GraphQL */ `
         owner
       }
       stepNumber
+      workflow {
+        id
+        name
+        steps {
+          nextToken
+        }
+        createdAt
+        updatedAt
+        owner
+      }
       createdAt
       updatedAt
       workflowStepsId
       stepSequenceStepId
+      owner
     }
   }
 `;
