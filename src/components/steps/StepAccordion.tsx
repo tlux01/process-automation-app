@@ -1,0 +1,29 @@
+import { Accordion } from "react-bootstrap";
+import { Step } from "../../API";
+import TemplateItem from "../templates/Template";
+function StepAccordion(props: { step: Step }) {
+  return (
+    <>
+      <Accordion>
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>{props.step.name}</Accordion.Header>
+          <Accordion.Body>
+            <label className="me-2" htmlFor="scales">
+              Send Email?
+            </label>
+            <input
+              type="checkbox"
+              className="form-check-input"
+              name="sendEmailCheckbox"
+              value="sendEmail"
+              checked={props?.step.sendEmail}
+              readOnly
+            />
+            <TemplateItem template={props?.step.template!} />
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+    </>
+  );
+}
+export default StepAccordion;

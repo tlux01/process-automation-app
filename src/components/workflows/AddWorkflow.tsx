@@ -13,6 +13,10 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import _ from "lodash";
 import { CreateStepSequenceInput } from "../../API";
+import {
+  sequenceContainerStyle,
+  sequenceNumberStyle,
+} from "../../styles/sequenceStyles";
 
 type WorkflowInput = {
   name: string;
@@ -136,15 +140,6 @@ function AddWorkflow() {
       },
     ]);
     setStepSequenceList(temp);
-  };
-
-  const sequenceNumberStyle = {
-    fontSize: "20px",
-    margin: "0px",
-  };
-
-  const sequenceContainerStyle = {
-    width: "2rem",
   };
 
   let stepSequenceControl = stepSequenceList?.map((stepSequence) => {

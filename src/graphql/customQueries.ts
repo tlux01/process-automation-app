@@ -6,23 +6,38 @@ export const customListWorkflows = /* GraphQL */ `
   ) {
     listWorkflows(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
+        createdAt
         id
         name
+        owner
+        updatedAt
         steps {
           items {
-            id
             createdAt
+            id
             owner
             stepNumber
             stepSequenceStepId
             updatedAt
+            workflowStepsId
+            step {
+              createdAt
+              id
+              name
+              owner
+              sendEmail
+              stepTemplateId
+              template {
+                createdAt
+                id
+                name
+                owner
+                template
+              }
+            }
           }
         }
-        createdAt
-        updatedAt
-        owner
       }
-      nextToken
     }
   }
 `;

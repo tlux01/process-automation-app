@@ -3,6 +3,7 @@ import { Workflow } from "../../API";
 import Navigation from "../nav/Navigation";
 import AddWorkflow from "./AddWorkflow";
 import WorkflowList from "./WorkflowList";
+import WorkflowViewer from "./WorkflowViewer";
 
 function Workflows() {
   const [selectedWorkflow, setSelectedWorkflow] = useState<Workflow | null>(
@@ -19,7 +20,9 @@ function Workflows() {
           <WorkflowList selectedWorkflowCallback={selectedWorkflowCallback} />
           <AddWorkflow />
         </div>
-        <div className="col d-flex flex-column"></div>
+        <div className="col d-flex flex-column">
+          <WorkflowViewer workflow={selectedWorkflow} />
+        </div>
       </div>
     </>
   );
