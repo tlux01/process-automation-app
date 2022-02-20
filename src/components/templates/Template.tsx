@@ -26,9 +26,7 @@ function TemplateItem(props: { template: Template }) {
     <>
       <div className="d-flex flex-column">
         <div className="d-flex">
-          <h6 className="text-3xl font-bold underline">
-            {props.template.name}
-          </h6>
+          <h6 className="">{props.template.name}</h6>
           {expandButton}
         </div>
         <div>{templateText}</div>

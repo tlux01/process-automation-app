@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/ui-react": "^1.2.26",
+    "@craco/craco": "^6.4.3",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.4.1",
     "@mui/material": "^5.4.1",
+    "@tailwindcss/postcss7-compat": "^2.2.17",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -18,8 +20,10 @@
     "@types/react": "^17.0.36",
     "@types/react-dom": "^17.0.11",
     "@types/string-template": "^1.0.2",
+    "autoprefixer": "^9.8.8",
     "aws-amplify": "^4.3.8",
     "bootstrap": "^5.1.3",
+    "postcss": "^7.0.39",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.4",
     "react-dom": "^17.0.2",
@@ -27,13 +31,14 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
     "string-template": "^1.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "typescript": "^4.5.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
