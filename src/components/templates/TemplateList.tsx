@@ -2,8 +2,8 @@ import API from "@aws-amplify/api";
 import { graphqlOperation } from "@aws-amplify/api-graphql";
 import { useEffect, useRef, useState } from "react";
 import { Col, ListGroup, Row } from "react-bootstrap";
+import { Template } from "../../API";
 import { listTemplates } from "../../graphql/queries";
-import { Template } from "../../viewModels/Template";
 
 function TemplateList(props: { selectedTemplateCallback: Function }) {
   const [templates, setTemplates] = useState<Template[] | null>(null);

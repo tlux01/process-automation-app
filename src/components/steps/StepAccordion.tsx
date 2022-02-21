@@ -1,6 +1,6 @@
 import { Accordion } from "react-bootstrap";
 import { Step } from "../../API";
-import TemplateItem from "../templates/Template";
+import TemplateListItem from "../templates/TemplateListItem";
 function StepAccordion(props: { step: Step }) {
   return (
     <>
@@ -19,7 +19,7 @@ function StepAccordion(props: { step: Step }) {
               checked={props?.step.sendEmail}
               readOnly
             />
-            <TemplateItem template={props?.step.template!} />
+            <TemplateListItem template={props?.step.template!} />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>

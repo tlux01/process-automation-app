@@ -17,13 +17,7 @@ Amplify.configure(awsExports);
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/workflows" element={<Workflows />} />
-        <Route path="customers" element={<Customers />} />
-        <Route path="templates" element={<Templates />} />
-        <Route path="steps" element={<Steps />} />
-      </Routes>
+      <App />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

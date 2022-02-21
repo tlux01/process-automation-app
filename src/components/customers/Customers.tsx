@@ -1,11 +1,10 @@
 import AddCustomer from "./AddCustomer";
 import CustomerList from "./CustomerList";
-import Navigation from "../nav/Navigation";
+import SideNavDrawer from "../nav/SideNavDrawer";
 
 function Customers() {
   return (
     <>
-      <Navigation />
       <CustomerList />
       <AddCustomer />
     </>

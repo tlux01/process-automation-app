@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import { Template } from "../../viewModels/Template";
+import { Template } from "../../API";
 
 function TemplateViewer(props: { template: Template | null }) {
   if (props.template) {

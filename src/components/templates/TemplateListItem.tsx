@@ -4,7 +4,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
 import { template } from "lodash";
 
-function TemplateItem(props: { template: Template }) {
+function TemplateListItem(props: { template: Template }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => {
@@ -12,7 +12,11 @@ function TemplateItem(props: { template: Template }) {
   };
 
   const templateText = show ? (
-    <textarea>{props.template.template}</textarea>
+    <div className="p-0 m-0 mt-2 place-content-center">
+      <textarea readOnly className="border border-blue-500 rounded w-full h-60">
+        {props.template.template}
+      </textarea>
+    </div>
   ) : (
     <></>
   );
@@ -24,15 +28,15 @@ function TemplateItem(props: { template: Template }) {
   );
   return (
     <>
-      <div className="d-flex flex-column">
-        <div className="d-flex">
-          <h6 className="">{props.template.name}</h6>
+      <div className="flex flex-col w-72 border shadow-sm p-2 rounded">
+        <div className="flex justify-between">
+          <h6 className="m-auto">Template: {props.template.name}</h6>
           {expandButton}
         </div>
-        <div>{templateText}</div>
+        {templateText}
       </div>
     </>
   );
 }
 
-export default TemplateItem;
+export default TemplateListItem;

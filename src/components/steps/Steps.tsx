@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import AddStep from "./AddStep";
-import Navigation from "../nav/Navigation";
+import SideNavDrawer from "../nav/SideNavDrawer";
 import StepList from "./StepList";
 import StepViewer from "./StepViewer";
 import { Step } from "../../viewModels/Step";
@@ -13,7 +13,6 @@ function Steps() {
   }
   return (
     <>
-      <Navigation />
       <Container fluid>
         <div className="mt-1">
           <Row>

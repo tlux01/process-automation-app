@@ -1,4 +1,4 @@
-import { Template } from "./Template";
+import { Template } from "../API";
 
 type Step = {
   id: string;

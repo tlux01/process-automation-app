@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Workflow } from "../../API";
-import Navigation from "../nav/Navigation";
+import SideNavDrawer from "../nav/SideNavDrawer";
 import AddWorkflow from "./AddWorkflow";
 import WorkflowList from "./WorkflowList";
 import WorkflowViewer from "./WorkflowViewer";
@@ -14,7 +14,6 @@ function Workflows() {
   }
   return (
     <>
-      <Navigation />
       <div className="row">
         <div className="col d-flex flex-column">
           <WorkflowList selectedWorkflowCallback={selectedWorkflowCallback} />

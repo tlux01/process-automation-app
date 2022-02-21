@@ -2,9 +2,9 @@ import { API, graphqlOperation } from "aws-amplify";
 import { stringify } from "querystring";
 import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import { Template } from "../../API";
 import { createStep } from "../../graphql/mutations";
 import { listTemplates } from "../../graphql/queries";
-import { Template } from "../../viewModels/Template";
 
 interface StepInput {
   name: string;
