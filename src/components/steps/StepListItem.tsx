@@ -1,7 +1,7 @@
-import { Template } from "../../API";
+import { Step } from "../../API";
 
-function TemplateListItem(props: {
-  template: Template;
+function StepListItem(props: {
+  step: Step;
   selected: boolean;
   onPress: Function;
 }) {
@@ -13,18 +13,18 @@ function TemplateListItem(props: {
   return (
     <div
       className={props.selected ? activeListStyle : inactiveListStyle}
-      onClick={(e: any) => props.onPress(e, props.template)}
+      onClick={(e: any) => props.onPress(e, props.step)}
     >
       <div>
-        <span className="text-lg">{props.template.name}</span>
+        <span className="text-lg">{props.step.name}</span>
       </div>
       <div className="flex">
         <span className="text-xs text-gray-300">
-          Created At: {new Date(props.template.createdAt).toLocaleString()}
+          Created At: {new Date(props.step.createdAt).toLocaleString()}
         </span>
       </div>
     </div>
   );
 }
 
-export default TemplateListItem;
+export default StepListItem;

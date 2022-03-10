@@ -11,7 +11,7 @@ interface TemplateInput {
   template: string;
 }
 
-function AddTemplate() {
+function AddTemplateButon() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -83,4 +83,4 @@ function AddTemplate() {
   );
 }
 
-export default AddTemplate;
+export default AddTemplateButon;

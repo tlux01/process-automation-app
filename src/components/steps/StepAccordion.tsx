@@ -1,6 +1,6 @@
 import { Accordion } from "react-bootstrap";
 import { Step } from "../../API";
-import TemplateListItem from "../templates/TemplateListItem";
+import TemplateListItem from "../templates/Template";
 function StepAccordion(props: { step: Step }) {
   return (
     <>
