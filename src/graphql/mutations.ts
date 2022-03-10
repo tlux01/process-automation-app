@@ -59,6 +59,7 @@ export const createStep = /* GraphQL */ `
       id
       name
       sendEmail
+      description
       template {
         id
         name
@@ -83,6 +84,7 @@ export const updateStep = /* GraphQL */ `
       id
       name
       sendEmail
+      description
       template {
         id
         name
@@ -107,6 +109,7 @@ export const deleteStep = /* GraphQL */ `
       id
       name
       sendEmail
+      description
       template {
         id
         name
@@ -256,6 +259,7 @@ export const createStepSequence = /* GraphQL */ `
         id
         name
         sendEmail
+        description
         template {
           id
           name
@@ -299,6 +303,7 @@ export const updateStepSequence = /* GraphQL */ `
         id
         name
         sendEmail
+        description
         template {
           id
           name
@@ -342,6 +347,7 @@ export const deleteStepSequence = /* GraphQL */ `
         id
         name
         sendEmail
+        description
         template {
           id
           name
@@ -370,6 +376,45 @@ export const deleteStepSequence = /* GraphQL */ `
       updatedAt
       workflowStepsId
       stepSequenceStepId
+      owner
+    }
+  }
+`;
+export const createJobSequence = /* GraphQL */ `
+  mutation CreateJobSequence(
+    $input: CreateJobSequenceInput!
+    $condition: ModelJobSequenceConditionInput
+  ) {
+    createJobSequence(input: $input, condition: $condition) {
+      id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateJobSequence = /* GraphQL */ `
+  mutation UpdateJobSequence(
+    $input: UpdateJobSequenceInput!
+    $condition: ModelJobSequenceConditionInput
+  ) {
+    updateJobSequence(input: $input, condition: $condition) {
+      id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteJobSequence = /* GraphQL */ `
+  mutation DeleteJobSequence(
+    $input: DeleteJobSequenceInput!
+    $condition: ModelJobSequenceConditionInput
+  ) {
+    deleteJobSequence(input: $input, condition: $condition) {
+      id
+      createdAt
+      updatedAt
       owner
     }
   }

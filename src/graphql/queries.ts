@@ -41,6 +41,7 @@ export const getStep = /* GraphQL */ `
       id
       name
       sendEmail
+      description
       template {
         id
         name
@@ -67,6 +68,7 @@ export const listSteps = /* GraphQL */ `
         id
         name
         sendEmail
+        description
         template {
           id
           name
@@ -167,6 +169,7 @@ export const getStepSequence = /* GraphQL */ `
         id
         name
         sendEmail
+        description
         template {
           id
           name
@@ -212,6 +215,7 @@ export const listStepSequences = /* GraphQL */ `
           id
           name
           sendEmail
+          description
           createdAt
           updatedAt
           stepTemplateId
@@ -229,6 +233,33 @@ export const listStepSequences = /* GraphQL */ `
         updatedAt
         workflowStepsId
         stepSequenceStepId
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getJobSequence = /* GraphQL */ `
+  query GetJobSequence($id: ID!) {
+    getJobSequence(id: $id) {
+      id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listJobSequences = /* GraphQL */ `
+  query ListJobSequences(
+    $filter: ModelJobSequenceFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listJobSequences(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        createdAt
+        updatedAt
         owner
       }
       nextToken

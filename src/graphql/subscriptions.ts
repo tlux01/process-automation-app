@@ -47,6 +47,7 @@ export const onCreateStep = /* GraphQL */ `
       id
       name
       sendEmail
+      description
       template {
         id
         name
@@ -68,6 +69,7 @@ export const onUpdateStep = /* GraphQL */ `
       id
       name
       sendEmail
+      description
       template {
         id
         name
@@ -89,6 +91,7 @@ export const onDeleteStep = /* GraphQL */ `
       id
       name
       sendEmail
+      description
       template {
         id
         name
@@ -217,6 +220,7 @@ export const onCreateStepSequence = /* GraphQL */ `
         id
         name
         sendEmail
+        description
         template {
           id
           name
@@ -257,6 +261,7 @@ export const onUpdateStepSequence = /* GraphQL */ `
         id
         name
         sendEmail
+        description
         template {
           id
           name
@@ -297,6 +302,7 @@ export const onDeleteStepSequence = /* GraphQL */ `
         id
         name
         sendEmail
+        description
         template {
           id
           name
@@ -325,6 +331,36 @@ export const onDeleteStepSequence = /* GraphQL */ `
       updatedAt
       workflowStepsId
       stepSequenceStepId
+      owner
+    }
+  }
+`;
+export const onCreateJobSequence = /* GraphQL */ `
+  subscription OnCreateJobSequence($owner: String) {
+    onCreateJobSequence(owner: $owner) {
+      id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateJobSequence = /* GraphQL */ `
+  subscription OnUpdateJobSequence($owner: String) {
+    onUpdateJobSequence(owner: $owner) {
+      id
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteJobSequence = /* GraphQL */ `
+  subscription OnDeleteJobSequence($owner: String) {
+    onDeleteJobSequence(owner: $owner) {
+      id
+      createdAt
+      updatedAt
       owner
     }
   }
