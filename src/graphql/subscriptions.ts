@@ -335,33 +335,3 @@ export const onDeleteStepSequence = /* GraphQL */ `
     }
   }
 `;
-export const onCreateJobSequence = /* GraphQL */ `
-  subscription OnCreateJobSequence($owner: String) {
-    onCreateJobSequence(owner: $owner) {
-      id
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onUpdateJobSequence = /* GraphQL */ `
-  subscription OnUpdateJobSequence($owner: String) {
-    onUpdateJobSequence(owner: $owner) {
-      id
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const onDeleteJobSequence = /* GraphQL */ `
-  subscription OnDeleteJobSequence($owner: String) {
-    onDeleteJobSequence(owner: $owner) {
-      id
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;

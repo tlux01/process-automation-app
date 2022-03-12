@@ -20,10 +20,8 @@
     "@types/react": "^17.0.36",
     "@types/react-dom": "^17.0.11",
     "@types/string-template": "^1.0.2",
-    "autoprefixer": "^9.8.8",
     "aws-amplify": "^4.3.8",
     "bootstrap": "^5.1.3",
-    "postcss": "^7.0.39",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.4",
     "react-dom": "^17.0.2",
@@ -31,7 +29,6 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "4.0.3",
     "string-template": "^1.0.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "typescript": "^4.5.2",
     "web-vitals": "^1.1.2"
   },
@@ -58,5 +55,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.8",
+    "tailwindcss": "^3.0.23"
   }
 }

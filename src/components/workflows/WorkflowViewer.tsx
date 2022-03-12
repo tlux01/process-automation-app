@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap";
 import { Workflow } from "../../API";
-import StepSequenceItem from "../stepSequence/StepSequence";
+import StepSequenceItem from "../stepSequence/StepSequenceItem";
 
 function WorkflowViewer(props: { workflow: Workflow | null }) {
   console.log(props.workflow?.steps?.items);

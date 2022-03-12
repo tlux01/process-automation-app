@@ -13,13 +13,7 @@ function Templates() {
     null
   );
 
-  const [loadingTemplateList, setLoadingTemplateList] =
-    useState<Boolean>(false);
   const [refreshing, setRefreshing] = useState<Boolean>(false);
-
-  function selectedTemplateCallback(template: Template) {
-    setSelectedTemplate(template);
-  }
 
   const [templates, setTemplates] = useState<Template[] | null>(null);
   const isMountedRef = useRef<boolean | null>(null);
@@ -38,7 +32,7 @@ function Templates() {
   useEffect(() => {
     isMountedRef.current = true;
 
-    initLoad();
+    refreshTemplateList();
     return () => {
       isMountedRef.current = false;
     };
@@ -48,18 +42,13 @@ function Templates() {
     setSelectedTemplate(template);
   }
 
-  async function initLoad() {
-    setRefreshing(true);
-    await getTemplates();
-    setRefreshing(false);
-  }
   const templateItemList = templates ? (
     templates.map((template) => {
       return (
         <TemplateListItem
           template={template}
           selected={
-            selectedTemplate ? template.id == selectedTemplate.id : false
+            selectedTemplate ? template.id === selectedTemplate.id : false
           }
           onPress={selectTemplate}
           key={template.id}
@@ -111,7 +100,7 @@ function Templates() {
         </div>
         <div className="flex flex-grow overflow-hidden">
           <div className="flex flex-col w-60 justify-between overflow-hidden">
-            <div className="flex flex-col flex-grow overflow-scroll">
+            <div className="flex flex-col flex-grow overflow-y-scroll">
               {refreshing ? refreshIcon : templateItemList}
             </div>
             <div className="flex justify-end pb-2 pe-2 pt-2">

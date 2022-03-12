@@ -2,23 +2,15 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateCustomerInput = {
-  id?: string | null,
-  firstName?: string | null,
-  lastName?: string | null,
-  email?: string | null,
+export type ModelWorkflowFilterInput = {
+  id?: ModelIDInput | null,
+  name?: ModelStringInput | null,
+  and?: Array< ModelWorkflowFilterInput | null > | null,
+  or?: Array< ModelWorkflowFilterInput | null > | null,
+  not?: ModelWorkflowFilterInput | null,
 };
 
-export type ModelCustomerConditionInput = {
-  firstName?: ModelStringInput | null,
-  lastName?: ModelStringInput | null,
-  email?: ModelStringInput | null,
-  and?: Array< ModelCustomerConditionInput | null > | null,
-  or?: Array< ModelCustomerConditionInput | null > | null,
-  not?: ModelCustomerConditionInput | null,
-};
-
-export type ModelStringInput = {
+export type ModelIDInput = {
   ne?: string | null,
   eq?: string | null,
   le?: string | null,
@@ -58,6 +50,96 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
+export type ModelStringInput = {
+  ne?: string | null,
+  eq?: string | null,
+  le?: string | null,
+  lt?: string | null,
+  ge?: string | null,
+  gt?: string | null,
+  contains?: string | null,
+  notContains?: string | null,
+  between?: Array< string | null > | null,
+  beginsWith?: string | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+  size?: ModelSizeInput | null,
+};
+
+export type ModelWorkflowConnection = {
+  __typename: "ModelWorkflowConnection",
+  items:  Array<Workflow | null >,
+  nextToken?: string | null,
+};
+
+export type Workflow = {
+  __typename: "Workflow",
+  id: string,
+  name: string,
+  steps?: ModelStepSequenceConnection | null,
+  createdAt: string,
+  updatedAt: string,
+  owner?: string | null,
+};
+
+export type ModelStepSequenceConnection = {
+  __typename: "ModelStepSequenceConnection",
+  items:  Array<StepSequence | null >,
+  nextToken?: string | null,
+};
+
+export type StepSequence = {
+  __typename: "StepSequence",
+  id: string,
+  step?: Step | null,
+  stepNumber?: number | null,
+  workflow?: Workflow | null,
+  createdAt: string,
+  updatedAt: string,
+  workflowStepsId?: string | null,
+  stepSequenceStepId?: string | null,
+  owner?: string | null,
+};
+
+export type Step = {
+  __typename: "Step",
+  id: string,
+  name: string,
+  sendEmail: boolean,
+  description?: string | null,
+  template?: Template | null,
+  createdAt: string,
+  updatedAt: string,
+  stepTemplateId?: string | null,
+  owner?: string | null,
+};
+
+export type Template = {
+  __typename: "Template",
+  id: string,
+  name: string,
+  template: string,
+  createdAt: string,
+  updatedAt: string,
+  owner?: string | null,
+};
+
+export type CreateCustomerInput = {
+  id?: string | null,
+  firstName?: string | null,
+  lastName?: string | null,
+  email?: string | null,
+};
+
+export type ModelCustomerConditionInput = {
+  firstName?: ModelStringInput | null,
+  lastName?: ModelStringInput | null,
+  email?: ModelStringInput | null,
+  and?: Array< ModelCustomerConditionInput | null > | null,
+  or?: Array< ModelCustomerConditionInput | null > | null,
+  not?: ModelCustomerConditionInput | null,
+};
+
 export type Customer = {
   __typename: "Customer",
   id: string,
@@ -84,12 +166,14 @@ export type CreateStepInput = {
   id?: string | null,
   name: string,
   sendEmail: boolean,
+  description?: string | null,
   stepTemplateId?: string | null,
 };
 
 export type ModelStepConditionInput = {
   name?: ModelStringInput | null,
   sendEmail?: ModelBooleanInput | null,
+  description?: ModelStringInput | null,
   and?: Array< ModelStepConditionInput | null > | null,
   or?: Array< ModelStepConditionInput | null > | null,
   not?: ModelStepConditionInput | null,
@@ -103,48 +187,11 @@ export type ModelBooleanInput = {
   attributeType?: ModelAttributeTypes | null,
 };
 
-export type ModelIDInput = {
-  ne?: string | null,
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  contains?: string | null,
-  notContains?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-  size?: ModelSizeInput | null,
-};
-
-export type Step = {
-  __typename: "Step",
-  id: string,
-  name: string,
-  sendEmail: boolean,
-  template?: Template | null,
-  createdAt: string,
-  updatedAt: string,
-  stepTemplateId?: string | null,
-  owner?: string | null,
-};
-
-export type Template = {
-  __typename: "Template",
-  id: string,
-  name: string,
-  template: string,
-  createdAt: string,
-  updatedAt: string,
-  owner?: string | null,
-};
-
 export type UpdateStepInput = {
   id: string,
   name?: string | null,
   sendEmail?: boolean | null,
+  description?: string | null,
   stepTemplateId?: string | null,
 };
 
@@ -186,35 +233,6 @@ export type ModelWorkflowConditionInput = {
   and?: Array< ModelWorkflowConditionInput | null > | null,
   or?: Array< ModelWorkflowConditionInput | null > | null,
   not?: ModelWorkflowConditionInput | null,
-};
-
-export type Workflow = {
-  __typename: "Workflow",
-  id: string,
-  name: string,
-  steps?: ModelStepSequenceConnection | null,
-  createdAt: string,
-  updatedAt: string,
-  owner?: string | null,
-};
-
-export type ModelStepSequenceConnection = {
-  __typename: "ModelStepSequenceConnection",
-  items:  Array<StepSequence | null >,
-  nextToken?: string | null,
-};
-
-export type StepSequence = {
-  __typename: "StepSequence",
-  id: string,
-  step?: Step | null,
-  stepNumber?: number | null,
-  workflow?: Workflow | null,
-  createdAt: string,
-  updatedAt: string,
-  workflowStepsId?: string | null,
-  stepSequenceStepId?: string | null,
-  owner?: string | null,
 };
 
 export type UpdateWorkflowInput = {
@@ -285,6 +303,7 @@ export type ModelStepFilterInput = {
   id?: ModelIDInput | null,
   name?: ModelStringInput | null,
   sendEmail?: ModelBooleanInput | null,
+  description?: ModelStringInput | null,
   and?: Array< ModelStepFilterInput | null > | null,
   or?: Array< ModelStepFilterInput | null > | null,
   not?: ModelStepFilterInput | null,
@@ -312,20 +331,6 @@ export type ModelTemplateConnection = {
   nextToken?: string | null,
 };
 
-export type ModelWorkflowFilterInput = {
-  id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  and?: Array< ModelWorkflowFilterInput | null > | null,
-  or?: Array< ModelWorkflowFilterInput | null > | null,
-  not?: ModelWorkflowFilterInput | null,
-};
-
-export type ModelWorkflowConnection = {
-  __typename: "ModelWorkflowConnection",
-  items:  Array<Workflow | null >,
-  nextToken?: string | null,
-};
-
 export type ModelStepSequenceFilterInput = {
   id?: ModelIDInput | null,
   stepNumber?: ModelIntInput | null,
@@ -334,6 +339,56 @@ export type ModelStepSequenceFilterInput = {
   not?: ModelStepSequenceFilterInput | null,
   workflowStepsId?: ModelIDInput | null,
   stepSequenceStepId?: ModelIDInput | null,
+};
+
+export type CustomListWorkflowsQueryVariables = {
+  filter?: ModelWorkflowFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type CustomListWorkflowsQuery = {
+  listWorkflows?:  {
+    __typename: "ModelWorkflowConnection",
+    items:  Array< {
+      __typename: "Workflow",
+      createdAt: string,
+      id: string,
+      name: string,
+      owner?: string | null,
+      updatedAt: string,
+      steps?:  {
+        __typename: "ModelStepSequenceConnection",
+        items:  Array< {
+          __typename: "StepSequence",
+          createdAt: string,
+          id: string,
+          owner?: string | null,
+          stepNumber?: number | null,
+          stepSequenceStepId?: string | null,
+          updatedAt: string,
+          workflowStepsId?: string | null,
+          step?:  {
+            __typename: "Step",
+            createdAt: string,
+            id: string,
+            name: string,
+            owner?: string | null,
+            sendEmail: boolean,
+            stepTemplateId?: string | null,
+            template?:  {
+              __typename: "Template",
+              createdAt: string,
+              id: string,
+              name: string,
+              owner?: string | null,
+              template: string,
+            } | null,
+          } | null,
+        } | null >,
+      } | null,
+    } | null >,
+  } | null,
 };
 
 export type CreateCustomerMutationVariables = {
@@ -401,6 +456,7 @@ export type CreateStepMutation = {
     id: string,
     name: string,
     sendEmail: boolean,
+    description?: string | null,
     template?:  {
       __typename: "Template",
       id: string,
@@ -428,6 +484,7 @@ export type UpdateStepMutation = {
     id: string,
     name: string,
     sendEmail: boolean,
+    description?: string | null,
     template?:  {
       __typename: "Template",
       id: string,
@@ -455,6 +512,7 @@ export type DeleteStepMutation = {
     id: string,
     name: string,
     sendEmail: boolean,
+    description?: string | null,
     template?:  {
       __typename: "Template",
       id: string,
@@ -626,6 +684,7 @@ export type CreateStepSequenceMutation = {
       id: string,
       name: string,
       sendEmail: boolean,
+      description?: string | null,
       template?:  {
         __typename: "Template",
         id: string,
@@ -675,6 +734,7 @@ export type UpdateStepSequenceMutation = {
       id: string,
       name: string,
       sendEmail: boolean,
+      description?: string | null,
       template?:  {
         __typename: "Template",
         id: string,
@@ -724,6 +784,7 @@ export type DeleteStepSequenceMutation = {
       id: string,
       name: string,
       sendEmail: boolean,
+      description?: string | null,
       template?:  {
         __typename: "Template",
         id: string,
@@ -809,6 +870,7 @@ export type GetStepQuery = {
     id: string,
     name: string,
     sendEmail: boolean,
+    description?: string | null,
     template?:  {
       __typename: "Template",
       id: string,
@@ -839,6 +901,7 @@ export type ListStepsQuery = {
       id: string,
       name: string,
       sendEmail: boolean,
+      description?: string | null,
       template?:  {
         __typename: "Template",
         id: string,
@@ -962,6 +1025,7 @@ export type GetStepSequenceQuery = {
       id: string,
       name: string,
       sendEmail: boolean,
+      description?: string | null,
       template?:  {
         __typename: "Template",
         id: string,
@@ -1014,6 +1078,7 @@ export type ListStepSequencesQuery = {
         id: string,
         name: string,
         sendEmail: boolean,
+        description?: string | null,
         createdAt: string,
         updatedAt: string,
         stepTemplateId?: string | null,
@@ -1099,6 +1164,7 @@ export type OnCreateStepSubscription = {
     id: string,
     name: string,
     sendEmail: boolean,
+    description?: string | null,
     template?:  {
       __typename: "Template",
       id: string,
@@ -1125,6 +1191,7 @@ export type OnUpdateStepSubscription = {
     id: string,
     name: string,
     sendEmail: boolean,
+    description?: string | null,
     template?:  {
       __typename: "Template",
       id: string,
@@ -1151,6 +1218,7 @@ export type OnDeleteStepSubscription = {
     id: string,
     name: string,
     sendEmail: boolean,
+    description?: string | null,
     template?:  {
       __typename: "Template",
       id: string,
@@ -1315,6 +1383,7 @@ export type OnCreateStepSequenceSubscription = {
       id: string,
       name: string,
       sendEmail: boolean,
+      description?: string | null,
       template?:  {
         __typename: "Template",
         id: string,
@@ -1363,6 +1432,7 @@ export type OnUpdateStepSequenceSubscription = {
       id: string,
       name: string,
       sendEmail: boolean,
+      description?: string | null,
       template?:  {
         __typename: "Template",
         id: string,
@@ -1411,6 +1481,7 @@ export type OnDeleteStepSequenceSubscription = {
       id: string,
       name: string,
       sendEmail: boolean,
+      description?: string | null,
       template?:  {
         __typename: "Template",
         id: string,

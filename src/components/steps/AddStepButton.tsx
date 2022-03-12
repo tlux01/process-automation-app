@@ -2,16 +2,12 @@ import { API, graphqlOperation } from "aws-amplify";
 import { stringify } from "querystring";
 import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import { Template } from "../../API";
+import { CreateStepInput, Template } from "../../API";
 import { createStep } from "../../graphql/mutations";
 import { listTemplates } from "../../graphql/queries";
 
-interface StepInput {
-  name: string;
-  sendEmail: boolean;
-  stepTemplateId: string | null;
-}
-function AddStep() {
+
+function AddStepButton() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => {
@@ -19,7 +15,7 @@ function AddStep() {
     setShow(true);
   };
 
-  const [newStep, setNewStep] = useState<StepInput>({
+  const [newStep, setNewStep] = useState<CreateStepInput>({
     name: "",
     sendEmail: false,
     stepTemplateId: null,
@@ -40,7 +36,7 @@ function AddStep() {
     setTemplateList(templatesData.data.listTemplates.items);
     console.log(templateList);
   };
-  const handleStepInput = (field: keyof StepInput, value: any) => {
+  const handleStepInput = (field: keyof CreateStepInput, value: any) => {
     let c = newStep;
     console.log(value);
     if (field === "sendEmail") {
@@ -77,6 +73,17 @@ function AddStep() {
                 type="text"
                 placeholder="Enter Step Name"
                 onChange={(e) => handleStepInput("name", e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicLastName">
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                type="text"
+                onChange={(e) =>
+                  handleStepInput("description", e.target.value)
+                }
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -131,4 +138,4 @@ function AddStep() {
   );
 }
 
-export default AddStep;
+export default AddStepButton;

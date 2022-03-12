@@ -239,30 +239,3 @@ export const listStepSequences = /* GraphQL */ `
     }
   }
 `;
-export const getJobSequence = /* GraphQL */ `
-  query GetJobSequence($id: ID!) {
-    getJobSequence(id: $id) {
-      id
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const listJobSequences = /* GraphQL */ `
-  query ListJobSequences(
-    $filter: ModelJobSequenceFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listJobSequences(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        createdAt
-        updatedAt
-        owner
-      }
-      nextToken
-    }
-  }
-`;

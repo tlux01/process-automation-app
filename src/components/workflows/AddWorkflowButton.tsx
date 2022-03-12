@@ -4,11 +4,9 @@ import { Workflow } from "../../viewModels/Workflow";
 import { listSteps, listStepSequences } from "../../graphql/queries";
 import { customListWorkflows } from "../../graphql/customQueries";
 import { createStepSequence, createWorkflow } from "../../graphql/mutations";
-import { Button, Col, Form, Modal, Row } from "react-bootstrap";
+import { Button, Form, Modal } from "react-bootstrap";
 import { Step } from "../../viewModels/Step";
 import AddIcon from "@mui/icons-material/Add";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import _ from "lodash";
@@ -26,7 +24,7 @@ type StepSequenceInput = {
   sequence: number;
   stepId: string;
 };
-function AddWorkflow() {
+function AddWorkflowButton() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => {
@@ -249,4 +247,4 @@ function AddWorkflow() {
   );
 }
 
-export default AddWorkflow;
+export default AddWorkflowButton;

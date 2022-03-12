@@ -2,7 +2,6 @@ import { Template } from "../../API";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useState } from "react";
-import { template } from "lodash";
 
 function TemplateItem(props: { template: Template }) {
   const [show, setShow] = useState(false);

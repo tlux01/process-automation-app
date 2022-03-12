@@ -8,11 +8,11 @@ import StepAccordion from "../steps/StepAccordion";
 function StepSequenceItem(props: { stepSequence: StepSequence }) {
   return (
     <>
-      <div className="d-flex">
-        <div className="me-2" style={sequenceContainerStyle}>
-          <p style={sequenceNumberStyle}>{props.stepSequence.stepNumber}</p>
+      <div className="flex before:content">
+        <div className="flex justify-center align-middle m-2 w-10 h-10 bg-blue-600 rounded">
+          <p className="text-white m-auto">{props.stepSequence.stepNumber}</p>
         </div>
-        <div className="align-self-center me-2">
+        <div className="align-self-center me-2 h-48">
           <StepAccordion step={props.stepSequence.step!} />
         </div>
       </div>

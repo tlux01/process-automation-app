@@ -1,5 +1,5 @@
 export const customListWorkflows = /* GraphQL */ `
-  query ListWorkflows(
+  query CustomListWorkflows(
     $filter: ModelWorkflowFilterInput
     $limit: Int
     $nextToken: String
