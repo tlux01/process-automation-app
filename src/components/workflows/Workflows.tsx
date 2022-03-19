@@ -54,7 +54,7 @@ function Workflows() {
           workflow={workflow}
           onPress={selectWorkflow}
           selected={
-            selectedWorkflow ? selectedWorkflow.id == workflow.id : false
+            selectedWorkflow ? selectedWorkflow.id === workflow.id : false
           }
         />
       );

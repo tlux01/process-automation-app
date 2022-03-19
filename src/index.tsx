@@ -1,16 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Templates from "./components/templates/Templates";
-import Steps from "./components/steps/Steps";
-import Customers from "./components/customers/Customers";
-import Workflows from "./components/workflows/Workflows";
 
 Amplify.configure(awsExports);
 

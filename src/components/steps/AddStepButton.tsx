@@ -1,11 +1,9 @@
 import { API, graphqlOperation } from "aws-amplify";
-import { stringify } from "querystring";
 import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { CreateStepInput, Template } from "../../API";
 import { createStep } from "../../graphql/mutations";
 import { listTemplates } from "../../graphql/queries";
-
 
 function AddStepButton() {
   const [show, setShow] = useState(false);
@@ -81,9 +79,7 @@ function AddStepButton() {
                 as="textarea"
                 rows={3}
                 type="text"
-                onChange={(e) =>
-                  handleStepInput("description", e.target.value)
-                }
+                onChange={(e) => handleStepInput("description", e.target.value)}
               />
             </Form.Group>
             <Form.Group className="mb-3">

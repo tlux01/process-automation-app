@@ -1,7 +1,8 @@
-import { Step, StepSequence, Workflow } from "../../API";
+import { StepSequence, Workflow } from "../../API";
 import StepSequenceItem from "../stepSequence/StepSequenceItem";
 
 function WorkflowEditor(props: { workflow: Workflow }) {
+  const numSteps = props.workflow.steps?.items.length;
   const stepSequenceList = (props.workflow?.steps?.items as StepSequence[])
     .sort((a: StepSequence, b: StepSequence) => {
       if (a.stepNumber! > b.stepNumber!) {
@@ -13,7 +14,10 @@ function WorkflowEditor(props: { workflow: Workflow }) {
     .map((stepItem) => {
       return (
         <>
-          <StepSequenceItem stepSequence={stepItem!} />
+          <StepSequenceItem
+            stepSequence={stepItem!}
+            last={stepItem.stepNumber === numSteps}
+          />
         </>
       );
     });

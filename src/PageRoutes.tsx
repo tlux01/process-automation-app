@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
 import Customers from "./components/customers/Customers";
 import Steps from "./components/steps/Steps";
 import Templates from "./components/templates/Templates";

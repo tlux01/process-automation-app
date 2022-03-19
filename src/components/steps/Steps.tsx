@@ -1,5 +1,5 @@
 import { API, graphqlOperation } from "aws-amplify";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Step } from "../../API";
 import { listSteps } from "../../graphql/queries";
 import StepListItem from "./StepListItem";
@@ -24,38 +24,37 @@ function Steps() {
     }
   }
 
-  useEffect(() => {
-    isMountedRef.current = true;
-
-    refreshStepList();
-    return () => {
-      isMountedRef.current = false;
-    };
-  }, []);
-
-  async function refreshStepList() {
+  const refreshSteps = useCallback(async () => {
     setRefreshing(true);
     await getSteps();
     setRefreshing(false);
-  }
+  }, []);
 
-  function selectStep(e:any, step: Step) {
-    setSelectedStep(step)
+  useEffect(() => {
+    isMountedRef.current = true;
+    refreshSteps();
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, [refreshSteps]);
+
+  function selectStep(e: any, step: Step) {
+    setSelectedStep(step);
   }
   const stepItemList = steps ? (
     steps.map((step) => {
       return (
         <StepListItem
-        step = {step}
-        onPress= {selectStep}
-        selected = {selectedStep ? selectedStep.id == step.id : false}
+          step={step}
+          onPress={selectStep}
+          selected={selectedStep ? selectedStep.id === step.id : false}
         />
       );
     })
   ) : (
     <></>
   );
-  const stepEditor = selectedStep ? (<StepEditor step={selectedStep}/>) : (<></>)
+  const stepEditor = selectedStep ? <StepEditor step={selectedStep} /> : <></>;
 
   return (
     <>
@@ -64,29 +63,25 @@ function Steps() {
           <div className="flex">
             <h3 className="m-0">Steps</h3>
             <div className="my-auto">
-              <RefreshIcon onClick={refreshStepList} />
+              <RefreshIcon onClick={refreshSteps} />
             </div>
           </div>
           {refreshing ? (
             <></>
           ) : (
-            <p className="text-xs">
-              You currently have {steps?.length} steps
-            </p>
+            <p className="text-xs">You currently have {steps?.length} steps</p>
           )}
         </div>
         <div className="flex flex-grow overflow-hidden">
           <div className="flex flex-col w-60 justify-between overflow-hidden">
             <div className="flex flex-col flex-grow overflow-y-scroll">
-              {refreshing ? <RefreshSpinner/> : stepItemList}
+              {refreshing ? <RefreshSpinner /> : stepItemList}
             </div>
             <div className="flex justify-end pb-2 pe-2 pt-2">
               <AddStepButton />
             </div>
           </div>
-          <div className="flex-grow">
-            {stepEditor}
-          </div>
+          <div className="flex-grow">{stepEditor}</div>
         </div>
       </div>
     </>
@@ -94,4 +89,3 @@ function Steps() {
 }
 
 export default Steps;
-

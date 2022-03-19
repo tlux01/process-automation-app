@@ -1,6 +1,5 @@
 import API, { graphqlOperation } from "@aws-amplify/api";
 import { useState } from "react";
-import { Workflow } from "../../viewModels/Workflow";
 import { listSteps, listStepSequences } from "../../graphql/queries";
 import { customListWorkflows } from "../../graphql/customQueries";
 import { createStepSequence, createWorkflow } from "../../graphql/mutations";
@@ -40,7 +39,6 @@ function AddWorkflowButton() {
   const [newWorkflow, setNewWorkflow] = useState<WorkflowInput>({
     name: "",
   });
-  const [workflowList, setWorkflowList] = useState<Workflow[]>([]);
 
   const getWorkflows = async () => {
     const workflowData = (await API.graphql(
