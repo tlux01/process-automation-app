@@ -16,7 +16,7 @@ function StepSequenceItem(props: {
             {props.last ? <></> : <div className=" bg-blue-600 w-1"></div>}
           </div>
         </div>
-        <div className="flex-grow align-self-center me-2 h-48">
+        <div className="flex-grow align-self-center h-48">
           <StepEditor step={props.stepSequence.step!} />
         </div>
       </div>

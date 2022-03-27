@@ -20,6 +20,7 @@ function Steps() {
     };
     if (isMountedRef.current) {
       let steps = stepsData.data.listSteps.items;
+      console.log(steps);
       setSteps(steps);
     }
   }

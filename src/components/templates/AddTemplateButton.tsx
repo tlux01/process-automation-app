@@ -4,13 +4,16 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { API, graphqlOperation } from "aws-amplify";
 import { createTemplate } from "../../graphql/mutations";
-
+import ReactQuill, { Quill } from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import { template } from "lodash";
 interface TemplateInput {
   name: string;
   template: string;
 }
 
 function AddTemplateButon() {
+  const [emailTemplate, setEmailTemplate] = useState("");
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -30,6 +33,7 @@ function AddTemplateButon() {
     let t = newTemplate;
     t[field] = value;
     setNewTemplate(t);
+    console.log(newTemplate.template);
   };
   return (
     <>
@@ -53,13 +57,10 @@ function AddTemplateButon() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicLastName">
               <Form.Label>Template</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                type="text"
-                onChange={(e) =>
-                  handleTemplateInput("template", e.target.value)
-                }
+              <ReactQuill
+                theme="snow"
+                value={newTemplate.template}
+                onChange={(e) => handleTemplateInput("template", e)}
               />
             </Form.Group>
           </Form>
